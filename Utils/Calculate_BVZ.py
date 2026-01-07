@@ -172,8 +172,12 @@ def calculate_BVZ(dbase, request_form, menu, current_user):
         project_sell_UA = project_sell_sq_m_UA * last_data["area"]
         project_profit_UA = final_profit_wsdbo_UA + profit_rack_UA + profit_f_UA + (project_sell_UA - project_sell_UA_1)
         instrument_fund = project_sell_UA / 100
+        to_the_risks = last_data['area'] * 100
+        on_the_plinth = last_data['area'] * 150
+        if to_the_risks < 100000:
+            to_the_risks = 100000
         price_delivery = (last_data["price_delivery"] * 0.2) * exch_rate_to
-        project_profit_UA = project_profit_UA - instrument_fund - price_delivery
+        project_profit_UA = project_profit_UA - instrument_fund - price_delivery - to_the_risks - on_the_plinth
 
         # ---------- Добавляем в словарь данные -------------------------------------------------------------
         last_data["percent_w"] = int(percent_w)  # Добавляем в словарь Процент склада

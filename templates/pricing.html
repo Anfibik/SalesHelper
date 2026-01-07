@@ -48,12 +48,12 @@
                 <input type="submit" name="button-delete-calc" value="удалить" class="button-delete-lead">
             </th>
             <th>№</th>
-            {% for t in title_table_calc_BVZ[0:4] %}
+            {% for t in title_table_calc_BVZ[0:13] %}
             <th>
               <button name="button-sort" class="button-sort-style" value="{{ t.name }}"> {{ t.title }} </button>
             </th>
             {% endfor %}
-            {% for t in title_table_calc_BVZ[4::] %}
+            {% for t in title_table_calc_BVZ[13::] %}
             <th>{{ t.title }}</th>
             {% endfor %}
         </tr>

@@ -472,8 +472,6 @@ def pricing():
             choose_project.append(
                 {"project": row['project'], "lead": row['company'], "selected": 0})
 
-    print(sort_info)
-
     title_table_calc_BVZ, value_table_calc_BVZ = view_table_warehouse(dbase, current_user, page='pricing',
                                                                       sort_info=sort_info)
     value_table_calc_BVZ = [list(record.values()) for record in value_table_calc_BVZ]

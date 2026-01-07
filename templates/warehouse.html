@@ -73,7 +73,13 @@
           <input type="number" name="{{ d.name }}" id="{{ d.name }}" step="any" placeholder="{{ d.placeholder }}" {% if
             d.current_vol %} value="{{ d.current_vol }}" {% endif %} required>
           {% endfor %}
+
+          {% if accept_3 == 'block' %}
+          <button name="button-accept-dimension" class="button-accept" value="block">изменить</button>
+          {% else %}
           <button name="button-accept-dimension" class="button-accept" value="block">применить</button>
+          {% endif %}
+
         </div>
       </div>
     </form>
@@ -89,7 +95,14 @@
           <input type="number" id="{{ p.name }}" name="{{ p.name }}" placeholder="{{ p.placeholder }}" {% if
             p.current_vol %} value="{{ p.current_vol }}" {% endif %} required>
           {% endfor %}
+
+          {% if accept_4 == 'block' %}
+          <button name="button-accept-pricing" class="button-accept" value="block">изменить</button>
+          {% else %}
           <button name="button-accept-pricing" class="button-accept" value="block">применить</button>
+          {% endif %}
+
+
         </div>
       </form>
     </div>
@@ -109,9 +122,14 @@
               p.current_vol %} value="{{ p.current_vol }}" {% endif %}>
           </div>
           {% endfor %}
-
         </div>
+
+        {% if accept_5 == 'block' %}
+        <button name="bbutton-accept-cost" class="button-accept" value="block">изменить</button>
+        {% else %}
         <button name="button-accept-cost" class="button-accept" value="block">применить</button>
+        {% endif %}
+
       </form>
     </div>
   </div>
@@ -171,7 +189,7 @@
           <div><b>{{ p.title }}</b> </> <output class="number">{{ p.result }}</output></div>
           {% endfor %}
           {% for p in get_title_table_pricing[1:3]%}
-          <div style="font-size: 14px;"><b>{{ p.title }}</b> </> <output class="number" >{{ p.result }}</output></div>
+          <div style="font-size: 14px;"><b>{{ p.title }}</b> </> <output class="number">{{ p.result }}</output></div>
           {% endfor %}
         </div>
 
@@ -255,7 +273,7 @@
           {% for p in set_profit[:3] %}
           <div>
             <label for="percent_cost">{{ p.title }}</label>
-            <input type="number", id="{{ p.name }}" name="{{ p.name }}" placeholder="{{ p.placeholder }}"
+            <input type="number" , id="{{ p.name }}" name="{{ p.name }}" placeholder="{{ p.placeholder }}"
               value="{{ p.current_vol }}">%
           </div>
           {% endfor %}
@@ -306,7 +324,7 @@
       </form>
     </div>
   </div>
-  
+
   <!--================================================================================================================-->
   <div class="vertical-line2" style="display: {{ accept_5 }};"></div>
   <!--================================================================================================================-->
@@ -316,7 +334,7 @@
     <div class="output-div">
       {% for p in get_title_table_total_coast[0:5] %}
       <div class="title">
-          <b>{{ p.title }} </b> <output class="number">{{ p.result }}</output>
+        <b>{{ p.title }} </b> <output class="number">{{ p.result }}</output>
       </div>
       {% endfor %}
     </div>
